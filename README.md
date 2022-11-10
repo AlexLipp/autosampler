@@ -14,10 +14,9 @@ This `python` script implementation requires the `LandLab` surface process model
 
 ## Usage 
 
-The algorithm is designed to be run from the command line. It takes as arguement a DEM (in `.asc`) format, and a target area (in the units of `.asc` file).
+The algorithm is designed to be run from the command line. It takes as argument a DEM (in `.asc`) format, and a target area (in the units of `.asc` file).
 
-e.g., `python auto_catchments.py cairngorms_topo.asc 5e8` subdivides the DEM called `cairngorms_topo.asc` into sub-catchments greater than 5e8 m2 (500 km2). Thie image shown above visualises the output. The locations of the sample sites (in units of **model grid cells**) are saved to `sample_sites.csv` and a raster map of the delineated catchments is saved to `area_IDs.asc`. The DEM `cairngorms_topo.asc` is provided for testing purposes. 
-
+e.g., `python auto_catchments.py cairngorms_topo.asc 5e8` subdivides the DEM called `cairngorms_topo.asc` into sub-catchments greater than 5e8 m2 (500 km2). Thie image shown above is the output of this command. The locations of the sample sites (in units of **model grid cells**) are saved to `sample_sites.csv` and a raster map of the delineated catchments is saved to `area_IDs.asc`. The DEM `cairngorms_topo.asc` is provided for testing purposes. 
 
 ## Algorithm Description 
 
