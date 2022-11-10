@@ -1,4 +1,6 @@
 # AutoCatchments
+[![DOI](https://zenodo.org/badge/563468108.svg)](https://zenodo.org/badge/latestdoi/563468108)
+
 
 ![Example output from AutoCatchments](https://user-images.githubusercontent.com/10188895/201136932-9fe7db1e-4d4c-4672-ad07-73aca1e5dd23.png)
 
@@ -6,7 +8,12 @@
 
 This algorithm is different to previous catchment delineation approaches as it aims to produce sub-catchments which are approximately equal in size, and no smaller than a specified target area. Automatic catchment delineation as it is generally implemented (e.g., in [ArcGIS](https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/how-watershed-works.htm) or [QGIS](https://docs.qgis.org/2.8/en/docs/training_manual/processing/hydro.html)) typically works by subdividing a *stream* network into catchments. This can result in sub-basins with a wide degree of different _areas_, depending on the topology of the network. Additionally, they only allow for sample sites to be present at stream junctions. The new algorithm presented here automatically identifies the optimal sampling strategy, optimising for equal coverage, irrespective of stream junctions.
 
-This software has no citation associated with it, so if you use it please just let me know as a courtesy!  
+### Cite
+
+If you use this please cite it as:
+`Lipp, Alex. 2022. AutoCatchments. Software. doi:  10.5281/zenodo.7311352`. 
+
+Please also acknowledge: `Barnhart et al. 2020. doi: 10.5194/esurf-8-379-2020` and `Barnes et al. 2014. doi: 10.1016/j.cageo.2013.04.024`.
 
 ## Prerequisites 
 
