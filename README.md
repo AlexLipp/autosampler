@@ -19,7 +19,7 @@ Please also acknowledge: `Barnhart et al. 2020. doi: 10.5194/esurf-8-379-2020` a
 
 ## Prerequisites 
 
-This `python` script implementation requires the `LandLab` surface process modelling package. `LandLab` can be easily [installed]([url](https://landlab.github.io/)) using most package management software (e.g., `conda`, `pip`). It also requires standard scientific computing packages.
+This `python` script implementation requires the `LandLab` surface process modelling package. `LandLab` can be easily [installed](https://landlab.github.io/) using most package management software (e.g., `conda`, `pip`). It also requires standard scientific computing packages.
 
 ## Usage 
 
