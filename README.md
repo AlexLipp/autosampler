@@ -8,6 +8,8 @@
 
 This algorithm is different to previous catchment delineation approaches as it aims to produce sub-catchments which are approximately equal in size, and no smaller than a specified target area. Automatic catchment delineation as it is generally implemented (e.g., in [ArcGIS](https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/how-watershed-works.htm) or [QGIS](https://docs.qgis.org/2.8/en/docs/training_manual/processing/hydro.html)) typically works by subdividing a *stream* network into catchments. This can result in sub-basins with a wide degree of different _areas_, depending on the topology of the network. Additionally, they only allow for sample sites to be present at stream junctions. The new algorithm presented here automatically identifies the optimal sampling strategy, optimising for equal coverage, irrespective of stream junctions.
 
+I make no claim that this is novel or even the best way of solving the problem... but hopefully it is useful. Boris Gailleton helped work out the most efficient approach.
+
 ### Cite
 
 If you use this please cite it as:
