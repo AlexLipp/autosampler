@@ -160,7 +160,7 @@ def process_output_dict(node_catchment_dict, model_grid):
     N = 1
     Ns, xs, ys = [], [], []
     for node, upst_nodes in node_catchment_dict.items():
-        x, y = np.unravel_index(node, model_grid.shape)
+        y, x = np.unravel_index(node, model_grid.shape)
         Ns += [N]
         xs += [x]
         ys += [y]
@@ -224,12 +224,12 @@ def viz_results(locs, areas, model_grid):
     cb = plt.colorbar()
     cb.set_label("Area ID")
     plt.title("Sample areas")
-    plt.scatter(x=locs[:, 2], y=locs[:, 1], c="black", marker="x", s=50)
+    plt.scatter(x=locs[:, 1], y=locs[:, 2], c="black", marker="x", s=50)
     plt.xlabel("x nodes")
     plt.ylabel("y nodes")
     plt.subplot(1, 2, 2)
     viz_drainage_area(model_grid=model_grid)
-    plt.scatter(x=locs[:, 2], y=locs[:, 1], c="red", marker="x", s=50)
+    plt.scatter(x=locs[:, 1], y=locs[:, 2], c="red", marker="x", s=50)
     plt.tight_layout()
 
 
