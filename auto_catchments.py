@@ -187,17 +187,17 @@ def save_results(locs, areas, model_grid):
 
     Produces two files:
         1. "sample_sites.csv" a file containing the sample site localities, given in `locs` input
-        2. "area_IDs.asc" a map of the delineated sub-catchments, given in `areas` input. This is an
+        2. "optimal_area_IDs.asc" a map of the delineated sub-catchments, given in `areas` input. This is an
         ESRI ASCII raster file format appropriate for use in most GIS software.
 
     """
     np.savetxt(
         "sample_sites.csv", X=locs, delimiter=",", header="Area ID, x, y", comments=""
     )
-    if os.path.exists("area_IDs.asc"):  # Allows over-writing of .asc files
-        os.remove("area_IDs.asc")
-    _ = model_grid.add_field("area_IDs", areas)
-    model_grid.save("area_IDs.asc", names="area_IDs")
+    if os.path.exists("optimal_area_IDs.asc"):  # Allows over-writing of .asc files
+        os.remove("optimal_area_IDs.asc")
+    _ = model_grid.add_field("optimal_area_IDs", areas)
+    model_grid.save("optimal_area_IDs.asc", names="optimal_area_IDs")
 
 
 def viz_results(locs, areas, model_grid):
