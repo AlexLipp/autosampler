@@ -8,11 +8,6 @@ import numpy as np
 from landlab.components import FlowAccumulator, SinkFillerBarnes
 from matplotlib.colors import LogNorm
 
-
-# TODO: Add doc strings to everything
-# TODO: Generate a readME
-
-
 def fast_delete(x, elements):
     """Removes `elements` from numpy array by value faster than list.remove
     Args:
