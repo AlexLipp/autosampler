@@ -25,7 +25,7 @@ This `python` script implementation requires the `LandLab` surface process model
 
 The algorithm is designed to be run from the command line. It takes as argument a DEM (in `.asc`) format, and a target area (in the units of `.asc` file):
 
-`python autosampler.py [path_to_dem.asc] [target_catchment_area]`
+`python auto_catchments.py [path_to_dem.asc] [target_catchment_area]`
 
 The locations of the sample sites (in units of **model grid cells**) are saved to `sample_sites.csv` and a raster map of the delineated catchments is saved to `area_IDs.asc`. 
 
