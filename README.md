@@ -1,5 +1,21 @@
-# AutoCatchments
-[![DOI](https://zenodo.org/badge/563468108.svg)](https://zenodo.org/badge/latestdoi/563468108)
+This repository contains some tools and algorithms which streamline the analysis of point observations (e.g., sample sites, gauging stations, dams etc) alongside drainage basins. There are two python scripts: 
+
+1. `auto_cathments.py` contains an algorithm (`AutoCatchments`) which automatically subdivides a drainage basin into sub-basins of approximately equal area, greater than some given threshold area. 
+2. `process_samples.py` contains tools which streamline the analysis of a given set of river sample/observation sites. Specifically, it provides functions for 1) [aligning samples to drainage](https://onlinelibrary.wiley.com/doi/abs/10.1029/2007WR006507), and 2) subdividing a drainage basin into sub-catchments based on provided sample sites.  
+
+### Cite
+
+If you use this please cite it as:
+`Lipp, Alex. 2022. AutoCatchments. Software. doi:  10.5281/zenodo.7311352`. 
+
+Please also acknowledge: `Barnhart et al. 2020. doi: 10.5194/esurf-8-379-2020` and `Barnes et al. 2014. doi: 10.1016/j.cageo.2013.04.024`.
+
+### Prerequisites 
+
+These `python` scripts require the `LandLab` surface process modelling package. `LandLab` can be easily [installed](https://landlab.github.io/) using most package management software (e.g., `conda`, `pip`). It also requires standard scientific computing packages.
+
+
+## 1. AutoCatchments
 
 
 ![Example output from AutoCatchments](https://user-images.githubusercontent.com/10188895/201136932-9fe7db1e-4d4c-4672-ad07-73aca1e5dd23.png)
@@ -10,18 +26,7 @@ This algorithm is different to previous catchment delineation approaches as it a
 
 I make no claim that this is novel or even the best way of solving the problem... but hopefully it is useful. Boris Gailleton helped work out the most efficient approach.
 
-### Cite
-
-If you use this please cite it as:
-`Lipp, Alex. 2022. AutoCatchments. Software. doi:  10.5281/zenodo.7311352`. 
-
-Please also acknowledge: `Barnhart et al. 2020. doi: 10.5194/esurf-8-379-2020` and `Barnes et al. 2014. doi: 10.1016/j.cageo.2013.04.024`.
-
-## Prerequisites 
-
-This `python` script implementation requires the `LandLab` surface process modelling package. `LandLab` can be easily [installed](https://landlab.github.io/) using most package management software (e.g., `conda`, `pip`). It also requires standard scientific computing packages.
-
-## Usage 
+### Usage 
 
 The algorithm is designed to be run from the command line. It takes as argument a DEM (in `.asc`) format, and a target area (in the units of `.asc` file):
 
@@ -29,14 +34,14 @@ The algorithm is designed to be run from the command line. It takes as argument 
 
 The locations of the sample sites (in units of **model grid cells**) are saved to `sample_sites.csv` and a raster map of the delineated catchments is saved to `area_IDs.asc`. 
 
-### Example
+#### Example
 
 An example DEM from [North East Scotland, UK ](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021GC009838) is provided for testing purposes. The above image shows the output from subdividing this DEM into sub-catchments greater than 500 km2 in size, using the command: 
 
 `python auto_catchments.py cairngorms_topo.asc 5e8` 
 
 
-## Algorithm Description 
+### Algorithm Description 
 
 I briefly detail how the algorithm works here but the code is well commented. I don't know if this has been done before (a very brief search found nothing) or whether there is a faster way of doing it (there probably is). 
 
@@ -51,3 +56,17 @@ I briefly detail how the algorithm works here but the code is well commented. I 
 
 
 For moderately sized DEMs (<100,000) cells the runtime is nearly instantaneous. For a DEM with 1 million cells it took around 20 minutes to complete on a standard desktop computer. Information on the progress of the algorithm is produced to the terminal. 
+
+## 2. Sample Processing 
+
+`process_samples.py` 
+
+### Usage 
+
+If used from command line this script is designed to take, 1) a DEM as a `.asc` 2) coordinates (in the same units as the DEM) of sample sites and 3) A drainage area threshold, which indicates the size of the channels which sample sites should be aligned to. 
+
+Alternatively, the functions can be imported e.g., `import process_samples.py`. Each function is well documented.
+
+### Example 
+
+`python process_samples.py cairngorms_topo.asc noisy_sample_sites.csv 5e8` will align the sample site localities given in `noisy_sample_sites.csv` to channels greater than 500 km2, and then subdivide the DEM into the sub-catchments for each sample-site. It outputs `fitted_localities.csv` which gives the coordinates of the fitted localities, and the corresponding 'Area ID'. This ID number corresponds to a unique sub-catchment in the raster map output `area_IDs.asc`. 
