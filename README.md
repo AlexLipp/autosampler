@@ -59,7 +59,7 @@ For moderately sized DEMs (<100,000) cells the runtime is nearly instantaneous. 
 
 ## 2. Sample Processing 
 
-`process_samples.py` 
+`process_samples.py` contains (well documented) tools which streamline the analysis of a given set of river sample/observation sites. Specifically, it provides functions for 1) [aligning samples to drainage](https://onlinelibrary.wiley.com/doi/abs/10.1029/2007WR006507), and 2) subdividing a drainage basin into sub-catchments based on provided sample sites.  
 
 ### Usage 
 
