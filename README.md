@@ -1,3 +1,9 @@
+# Update 2/2/23
+
+This repo has been superceded by: [github.com/AlexLipp/autocatchments/](https://github.com/AlexLipp/autocatchments/), which incorporates all of the below into a more user friendly python package. This is left online for legacy purposes. 
+
+## AutoSampler
+
 This repository contains some tools and algorithms which streamline the analysis of point observations (e.g., sample sites, gauging stations, dams etc) alongside drainage basins. There are two python scripts: 
 
 1. `auto_cathments.py` contains an algorithm (`AutoCatchments`) which automatically subdivides a drainage basin into sub-basins of approximately equal area, greater than some given threshold area. 
